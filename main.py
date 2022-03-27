@@ -1,6 +1,7 @@
 import pygame
 
 from Scene.MainScene import MainScene
+from Scene.SceneHandler import SceneHandler
 
 
 def main():
@@ -19,7 +20,7 @@ def main():
     pygame.display.set_caption('Swing Monkey Swing')
 
     # Scene is the curerntly rendering scene
-    scene = MainScene()
+    handler = SceneHandler()
 
     running = True
 
@@ -29,9 +30,9 @@ def main():
                 running = False
         clock.tick(60)
 
-        scene.handle(pygame.event.get())
-        scene.update()
-        scene.render(screen)
+        handler.scene.handle(pygame.event.get())
+        handler.scene.update()
+        handler.scene.render(screen)
         pygame.display.update()
     pygame.quit()
 
